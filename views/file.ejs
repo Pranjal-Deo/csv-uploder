@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Data</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <h1>CSV Upload App</h1>
+    <h2>CSV Data</h2>
+    <input type="text" id="searchBox" placeholder="Search...">
+    <table id="csvTable">
+        <thead>
+            <tr>
+                <% headers.forEach(function(header) { %>
+                    <th onclick="sortTable('<%= header %>')"><%= header %></th>
+                <% }) %>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(function(row) { %>
+                <tr>
+                    <% headers.forEach(function(header) { %>
+                        <td data-label="<%= header %>"><%= row[header] %></td>
+                    <% }) %>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <div id="pagination"></div>
+    <script src="/js/table.js"></script>
+</body>
+</html>
